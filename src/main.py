@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from src.db.init_db import init_db
 from src.api.router import router as tasks_router
+from src.api.websocket import ws_router
 
 logger = logging.getLogger(__name__)
 
@@ -36,6 +37,7 @@ def health_check():
     return {"status": "ok"}
 
 app.include_router(tasks_router)
+app.include_router(ws_router)
 
 if __name__ == "__main__":
     import uvicorn
