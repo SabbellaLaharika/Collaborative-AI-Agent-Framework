@@ -10,3 +10,5 @@ htmlcov/
 .venv
 env/
 venv/
+*.db
+test.db

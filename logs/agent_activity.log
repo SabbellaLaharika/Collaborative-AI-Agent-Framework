@@ -1,1 +1,51 @@
 
+{"timestamp": "2026-08-19T14:35:57.522Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:35:57.523Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T14:35:57.625Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:35:57.626Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T14:48:26.362Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:48:26.364Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T14:48:26.466Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:48:26.467Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T14:51:35.363Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:51:35.364Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T14:51:35.466Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:51:35.466Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T14:52:33.105Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:52:33.106Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T14:52:33.208Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:52:33.209Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T14:53:40.268Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:53:40.269Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T14:53:40.370Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T14:53:40.371Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T15:24:39.818Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:24:39.819Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T15:24:39.921Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:24:39.922Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T15:26:38.465Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:26:38.467Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T15:26:38.569Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:26:38.570Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T15:26:47.789Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:26:47.790Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T15:26:47.890Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:26:47.890Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T15:43:10.218Z", "task_id": "c66ae92e-fd8b-4391-8d81-fadfa5d83ad3", "agent_name": "CeleryWorker", "action_details": "Execution error in run_agent_workflow: (psycopg2.OperationalError) could not translate host name \"db\" to address: No such host is known. \n\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"}
+{"timestamp": "2026-08-19T15:43:14.224Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:43:14.225Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T15:43:14.326Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:43:14.327Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T15:43:14.841Z", "task_id": "f40619b0-eb82-4885-b55a-0b5efd4c5d6c", "agent_name": "CeleryWorker", "action_details": "Execution error in run_agent_workflow: (psycopg2.OperationalError) could not translate host name \"db\" to address: No such host is known. \n\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"}
+{"timestamp": "2026-08-19T15:43:18.340Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:43:18.342Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T15:43:18.443Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:43:18.444Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T15:48:21.463Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:48:21.464Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T15:48:21.565Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:48:21.566Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
+{"timestamp": "2026-08-19T15:48:22.616Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:48:22.616Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Tool error on search query '__FLAKY_TEST__': Simulated transient network timeout."}
+{"timestamp": "2026-08-19T15:48:22.718Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Executing web search tool for query: '__FLAKY_TEST__'"}
+{"timestamp": "2026-08-19T15:48:22.718Z", "task_id": "test-flaky-retry-task", "agent_name": "ResearchAgent", "action_details": "Retried search query '__FLAKY_TEST__' successfully on second attempt."}
