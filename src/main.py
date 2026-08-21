@@ -9,6 +9,21 @@ from src.api.websocket import ws_router
 
 logger = logging.getLogger(__name__)
 
+tags_metadata = [
+    {
+        "name": "Tasks",
+        "description": "Endpoints to submit prompts, check multi-agent task execution status, and provide Human-in-the-Loop approval.",
+    },
+    {
+        "name": "WebSockets",
+        "description": "Real-time WebSocket streaming endpoints for task status updates via Redis Pub/Sub.",
+    },
+    {
+        "name": "System",
+        "description": "Healthcheck and container diagnostics.",
+    },
+]
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifespan context manager to initialize database on app startup."""
@@ -21,8 +36,17 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Collaborative AI Agent Orchestration Framework",
-    description="Asynchronous multi-agent system powered by LangGraph, FastAPI, Celery, PostgreSQL, Redis, and WebSockets.",
+    description=(
+        "An asynchronous multi-agent system powered by **LangGraph**, **FastAPI**, **Celery**, **PostgreSQL**, **Redis**, and **WebSockets**.\n\n"
+        "### Features:\n"
+        "- **POST /api/v1/tasks**: Submit a prompt to start asynchronous research & writing agents.\n"
+        "- **GET /api/v1/tasks/{task_id}**: Retrieve real-time task status, agent audit logs, and final comparison summary.\n"
+        "- **POST /api/v1/tasks/{task_id}/approve**: Human-in-the-Loop approval endpoint to resume paused workflows.\n"
+        "- **ws://localhost:8000/ws/tasks/{task_id}**: Live WebSocket status stream via Redis Pub/Sub.\n"
+    ),
     version="1.0.0",
+    openapi_tags=tags_metadata,
+    swagger_ui_parameters={"deepLinking": True, "displayRequestDuration": True},
     lifespan=lifespan
 )
 
@@ -34,7 +58,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/health", status_code=200)
+@app.get("/", status_code=200, tags=["System"], summary="Root Health Check")
+def root_check():
+    """Root endpoint returning system health status."""
+    return {"status": "ok"}
+
+@app.get("/health", status_code=200, tags=["System"], summary="Container Health Check")
 def health_check():
     """Health check endpoint required by Docker Compose service health checks."""
     return {"status": "ok"}

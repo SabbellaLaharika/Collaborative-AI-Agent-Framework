@@ -11,6 +11,7 @@ def simulated_search_tool_raw(query: str, task_id: str = "unknown") -> str:
     """
     Simulated search tool.
     If query == '__FLAKY_TEST__', raises Exception on 1st attempt, succeeds on 2nd attempt.
+    Dynamically generates research findings for any custom user query.
     """
     if query == "__FLAKY_TEST__":
         attempts = flaky_tool_attempts.get(query, 0)
@@ -30,11 +31,20 @@ def simulated_search_tool_raw(query: str, task_id: str = "unknown") -> str:
         )
         return "Search results retrieved on second attempt for __FLAKY_TEST__."
 
+    # Dynamic response tailored to user's query
+    if "langgraph" in query.lower() or "crewai" in query.lower():
+        return (
+            "LangGraph Features: Stateful multi-agent orchestration, cyclical graph routing, "
+            "built-in Human-in-the-Loop breakpoints, persistence, fine-grained control over node transitions.\n"
+            "CrewAI Features: Role-based autonomous agent collaboration, pre-built agent delegations, "
+            "task-driven sequential/hierarchical execution, high-level prompt abstraction."
+        )
+
     return (
-        "LangGraph Features: Stateful multi-agent orchestration, cyclical graph routing, "
-        "built-in Human-in-the-Loop breakpoints, persistence, fine-grained control over node transitions.\n"
-        "CrewAI Features: Role-based autonomous agent collaboration, pre-built agent delegations, "
-        "task-driven sequential/hierarchical execution, high-level prompt abstraction."
+        f"Research Results for '{query}':\n"
+        f"- Core Concepts: Analyzed key architecture and underlying design principles for '{query}'.\n"
+        f"- Performance & Scalability: High efficiency for distributed asynchronous execution.\n"
+        f"- Integration Surface: Standard REST API, WebSocket streams, and structured logging capabilities."
     )
 
 @retry(

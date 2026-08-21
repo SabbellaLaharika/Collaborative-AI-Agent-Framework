@@ -11,19 +11,22 @@ from src.api.schemas import (
     TaskResponse,
     TaskApproveRequest,
     TaskApproveResponse,
+    HTTPError400Detail,
+    HTTPError404Detail,
 )
 
 router = APIRouter(prefix="/api/v1/tasks", tags=["Tasks"])
 
-@router.post("", status_code=status.HTTP_202_ACCEPTED, response_model=TaskCreateResponse)
+@router.post(
+    "",
+    status_code=status.HTTP_202_ACCEPTED,
+    response_model=TaskCreateResponse,
+    summary="Create Collaborative Agent Task",
+    description="Initiates an asynchronous multi-agent research & writing task in Celery worker and immediately returns a PENDING task UUID (<500ms)."
+)
 def create_task(request: TaskCreateRequest, db: Session = Depends(get_db)):
-    """
-    Creates a new collaborative agent task, stores PENDING state in DB,
-    and dispatches Celery background worker asynchronously (<500ms).
-    """
     task_id = str(uuid.uuid4())
     
-    # 1. Save new task to DB with status PENDING
     new_task = TaskModel(
         id=uuid.UUID(task_id),
         prompt=request.prompt,
@@ -35,17 +38,22 @@ def create_task(request: TaskCreateRequest, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_task)
 
-    # 2. Dispatch background worker task asynchronously
     run_agent_workflow.delay(task_id, request.prompt)
 
-    # 3. Return 202 Accepted response immediately
     return TaskCreateResponse(task_id=task_id, status="PENDING")
 
-@router.get("/{task_id}", status_code=status.HTTP_200_OK, response_model=TaskResponse)
+@router.get(
+    "/{task_id}",
+    status_code=status.HTTP_200_OK,
+    response_model=TaskResponse,
+    summary="Get Task Details & Audit Logs",
+    description="Retrieves current status, research/writing result, and full agent_logs audit trail for a task.",
+    responses={
+        400: {"model": HTTPError400Detail, "description": "Invalid UUID format supplied"},
+        404: {"model": HTTPError404Detail, "description": "Task not found in PostgreSQL database"},
+    }
+)
 def get_task(task_id: str, db: Session = Depends(get_db)):
-    """
-    Retrieves current task details, execution status, final result, and agent audit logs.
-    """
     try:
         task_uuid = uuid.UUID(task_id)
     except ValueError:
@@ -71,15 +79,22 @@ def get_task(task_id: str, db: Session = Depends(get_db)):
         updated_at=task.updated_at.isoformat() if task.updated_at else ""
     )
 
-@router.post("/{task_id}/approve", status_code=status.HTTP_200_OK, response_model=TaskApproveResponse)
+@router.post(
+    "/{task_id}/approve",
+    status_code=status.HTTP_200_OK,
+    response_model=TaskApproveResponse,
+    summary="Human-in-the-Loop Task Approval",
+    description="Resumes a workflow paused at AWAITING_APPROVAL checkpoint and dispatches completion task to Celery worker.",
+    responses={
+        400: {"model": HTTPError400Detail, "description": "Invalid UUID format supplied"},
+        404: {"model": HTTPError404Detail, "description": "Task not found in PostgreSQL database"},
+    }
+)
 def approve_task(
     task_id: str,
     request: TaskApproveRequest = TaskApproveRequest(),
     db: Session = Depends(get_db)
 ):
-    """
-    Provides human approval to resume a task paused at AWAITING_APPROVAL checkpoint.
-    """
     try:
         task_uuid = uuid.UUID(task_id)
     except ValueError:
@@ -95,11 +110,9 @@ def approve_task(
             detail=f"Task with ID '{task_id}' not found."
         )
 
-    # Update database status to RESUMED
     task.status = "RESUMED"
     db.commit()
 
-    # Dispatch Celery worker resume task
     resume_agent_workflow.delay(task_id, request.approved, request.feedback or "")
 
     return TaskApproveResponse(task_id=task_id, status="RESUMED")
